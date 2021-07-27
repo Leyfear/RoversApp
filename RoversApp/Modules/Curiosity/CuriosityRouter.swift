@@ -18,7 +18,7 @@ class CuriosityRouter {
         presenter.interactor = interactor
         presenter.router = self
         presenter.view = self.view
-        view.title = "Curiosity"
+        view.title = RoverType.Curiosity.rawValue
         view.presenter = presenter
         interactor.output = presenter
         let controller = view
@@ -30,5 +30,13 @@ class CuriosityRouter {
 }
 
 extension CuriosityRouter: CuriosityRouterProtocol {
-    
+    func navigateToDetail(detail: Photos) {
+      
+        let vc = DetailPopUpViewController()
+      
+        vc.detail = detail
+        vc.modalPresentationStyle = .overFullScreen
+        self.view.present(vc, animated: true, completion: nil)
+       
+    }
 }

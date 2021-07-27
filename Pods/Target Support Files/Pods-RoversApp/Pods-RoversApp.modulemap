@@ -1,0 +1,6 @@
+framework module Pods_RoversApp {
+  umbrella header "Pods-RoversApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

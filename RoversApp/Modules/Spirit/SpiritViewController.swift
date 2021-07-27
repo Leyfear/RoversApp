@@ -7,40 +7,40 @@
 
 import UIKit
 
-class SpiritViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+class SpiritViewController: BaseViewController {
+    
+    @IBOutlet weak var collectionView: PhotosCollectionView!
     var presenter: SpiritPresenterInput!
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter.getSpiritPhotos()
         collectionView.delegate = self
-        collectionView.dataSource = self
-        let nibRowCell = UINib(nibName: roversCellIdentifier, bundle: nil)
-        collectionView.register(nibRowCell, forCellWithReuseIdentifier: roversCellIdentifier)
+        camessss(type: .Spirit)
     }
-
+    
 }
-
+//MARK: - PresenterOutput
 extension SpiritViewController: SpiritPresenterOutput {
-    
-}
-
-extension SpiritViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 19
+    func didGetSpiritPhotos(response: PhotosResponse) {
+        self.collectionView.result = response.photos ?? []
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roversCellIdentifier, for: indexPath as IndexPath) as! RoversCollectionViewCell
-       
-        return cell
+    func didGetMoreSpiritPhotos(response: PhotosResponse) {
+        self.collectionView.shouldGetMoreData = false
+        if (response.photos?.count ?? 0) > 0 {
+            collectionView.result.append(contentsOf: response.photos ?? [])
+        }
+    }
+}
+//MARK: - PhotosCollectionViewDelegate
+extension SpiritViewController: PhotosCollectionViewDelegate {
+    func navigateToDetail(detail: Photos) {
+        self.presenter.navigateToDetail(detail: detail)
     }
     
-    
-}
-
-extension SpiritViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width, height: 200)
+    func getMorePhotos(pageNo: Int) {
+        self.collectionView.shouldGetMoreData = false
+        self.presenter.getMoreSpiritPhotos(pageNo: pageNo)
     }
 }

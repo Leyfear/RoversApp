@@ -7,42 +7,40 @@
 
 import UIKit
 
-class CuriosityViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+class CuriosityViewController: BaseViewController {
+    
+    @IBOutlet weak var collectionView: PhotosCollectionView!
     var presenter: CuriosityPresenterInput!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter.getCuriosityPhotos()
         collectionView.delegate = self
-        collectionView.dataSource = self
-        let nibRowCell = UINib(nibName: roversCellIdentifier, bundle: nil)
-        collectionView.register(nibRowCell, forCellWithReuseIdentifier: roversCellIdentifier)
-       
+        camessss(type: .Curiosity)
     }
-
-
-
+        
 }
-
+//MARK: - PresenterOutput
 extension CuriosityViewController:CuriosityPresenterOutput {
-    
-}
-
-extension CuriosityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 19
+    func didGetMoreCuriosityPhotos(response: PhotosResponse) {
+        collectionView.shouldGetMoreData = false
+        if (response.photos?.count ?? 0) > 0 {
+            collectionView.result.append(contentsOf: response.photos ?? [])
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roversCellIdentifier, for: indexPath as IndexPath) as! RoversCollectionViewCell
-       
-        return cell
+    func didGetCuriosityPhotos(response: PhotosResponse) {
+        collectionView.result = response.photos ?? []
     }
-    
-    
 }
 
-extension CuriosityViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width, height: 200)
+//MARK: - PhotosCollectionViewDelegate
+extension CuriosityViewController: PhotosCollectionViewDelegate{
+    func getMorePhotos(pageNo: Int) {
+        self.presenter.getMoreCuriosityPhotos(pageNo: pageNo)
+    }
+    
+    func navigateToDetail(detail: Photos) {
+        self.presenter.navigateToDetail(detail: detail)
     }
 }

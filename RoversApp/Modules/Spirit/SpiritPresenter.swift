@@ -14,11 +14,26 @@ class SpiritPresenter {
 }
 
 extension SpiritPresenter: SpiritPresenterInput {
-  
+    func getSpiritPhotos() {
+        self.interactor?.getSpiritPhotos()
+    }
+    
+    func getMoreSpiritPhotos(pageNo: Int) {
+        self.interactor?.getMoreSpiritPhotos(pageNo:pageNo)
+    }
+    
+    func navigateToDetail(detail: Photos) {
+        self.router?.navigateToDetail(detail: detail)
+    }
 }
 
 
 extension SpiritPresenter: SpiritPresenterOutput {
-
+    func didGetSpiritPhotos(response: PhotosResponse) {
+        self.view?.didGetSpiritPhotos(response: response)
+    }
+    
+    func didGetMoreSpiritPhotos(response: PhotosResponse) {
+        self.view?.didGetMoreSpiritPhotos(response: response)
+    }
 }
-
