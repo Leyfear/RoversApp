@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,13 @@
 		049DEC8E26AFF945001F57D6 /* SpiritProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8826AFF945001F57D6 /* SpiritProtocols.swift */; };
 		049DEC8F26AFF945001F57D6 /* SpiritPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8926AFF945001F57D6 /* SpiritPresenter.swift */; };
 		049DEC9026AFF945001F57D6 /* SpiritRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8A26AFF945001F57D6 /* SpiritRouter.swift */; };
+		04EC065226B000B900BAEF7E /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC065126B000B900BAEF7E /* PhotosResponse.swift */; };
+		04EC065D26B00E7D00BAEF7E /* DetailPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC065B26B00E7D00BAEF7E /* DetailPopUpViewController.swift */; };
+		04EC065E26B00E7D00BAEF7E /* DetailPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EC065C26B00E7D00BAEF7E /* DetailPopUpViewController.xib */; };
+		04EC066226B02EC400BAEF7E /* PhotosCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC066126B02EC400BAEF7E /* PhotosCollectionView.swift */; };
+		04EC066526B02ED500BAEF7E /* PhotosCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EC066426B02ED500BAEF7E /* PhotosCollectionView.xib */; };
+		04EC066926B0430400BAEF7E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC066826B0430400BAEF7E /* Extensions.swift */; };
+		6F79E8125359E2AD1FB2609D /* Pods_RoversApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE79DCFCDE2FA658B74021B4 /* Pods_RoversApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +67,15 @@
 		049DEC8826AFF945001F57D6 /* SpiritProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritProtocols.swift; sourceTree = "<group>"; };
 		049DEC8926AFF945001F57D6 /* SpiritPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritPresenter.swift; sourceTree = "<group>"; };
 		049DEC8A26AFF945001F57D6 /* SpiritRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritRouter.swift; sourceTree = "<group>"; };
+		04EC065126B000B900BAEF7E /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		04EC065B26B00E7D00BAEF7E /* DetailPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopUpViewController.swift; sourceTree = "<group>"; };
+		04EC065C26B00E7D00BAEF7E /* DetailPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPopUpViewController.xib; sourceTree = "<group>"; };
+		04EC066126B02EC400BAEF7E /* PhotosCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionView.swift; sourceTree = "<group>"; };
+		04EC066426B02ED500BAEF7E /* PhotosCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionView.xib; sourceTree = "<group>"; };
+		04EC066826B0430400BAEF7E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		324A506E87A568CD55A3C001 /* Pods-RoversApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoversApp.debug.xcconfig"; path = "Target Support Files/Pods-RoversApp/Pods-RoversApp.debug.xcconfig"; sourceTree = "<group>"; };
+		99B6B695DCFDFB7DD8F2A26E /* Pods-RoversApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoversApp.release.xcconfig"; path = "Target Support Files/Pods-RoversApp/Pods-RoversApp.release.xcconfig"; sourceTree = "<group>"; };
+		FE79DCFCDE2FA658B74021B4 /* Pods_RoversApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoversApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F79E8125359E2AD1FB2609D /* Pods_RoversApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +95,8 @@
 			children = (
 				0413439026AFE5DE00153CF1 /* RoversApp */,
 				0413438F26AFE5DE00153CF1 /* Products */,
+				DB4C98A91FA484D7A0E6FACF /* Pods */,
+				5714727F1BDB113C2F8C6A6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +113,7 @@
 			children = (
 				049DEC5F26AFF913001F57D6 /* Constant.swift */,
 				0413439126AFE5DE00153CF1 /* AppDelegate.swift */,
+				04EC065126B000B900BAEF7E /* PhotosResponse.swift */,
 				04EC064926AFFC5700BAEF7E /* Modules */,
 				0413439A26AFE5DF00153CF1 /* Assets.xcassets */,
 				0413439C26AFE5DF00153CF1 /* LaunchScreen.storyboard */,
@@ -153,12 +173,50 @@
 		04EC064926AFFC5700BAEF7E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04EC066026B02E1800BAEF7E /* PhotosCollectionView */,
+				04EC065A26B00E1A00BAEF7E /* DetailPopUp */,
 				04EC064126AFFC1A00BAEF7E /* Curiosity */,
 				04EC064326AFFC3600BAEF7E /* Opportunity */,
 				04EC064526AFFC4400BAEF7E /* Spirit */,
 				04EC064726AFFC4E00BAEF7E /* Cell */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		04EC065A26B00E1A00BAEF7E /* DetailPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				04EC065B26B00E7D00BAEF7E /* DetailPopUpViewController.swift */,
+				04EC065C26B00E7D00BAEF7E /* DetailPopUpViewController.xib */,
+			);
+			path = DetailPopUp;
+			sourceTree = "<group>";
+		};
+		04EC066026B02E1800BAEF7E /* PhotosCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				04EC066126B02EC400BAEF7E /* PhotosCollectionView.swift */,
+				04EC066426B02ED500BAEF7E /* PhotosCollectionView.xib */,
+				04EC066826B0430400BAEF7E /* Extensions.swift */,
+			);
+			path = PhotosCollectionView;
+			sourceTree = "<group>";
+		};
+		5714727F1BDB113C2F8C6A6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE79DCFCDE2FA658B74021B4 /* Pods_RoversApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB4C98A91FA484D7A0E6FACF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				324A506E87A568CD55A3C001 /* Pods-RoversApp.debug.xcconfig */,
+				99B6B695DCFDFB7DD8F2A26E /* Pods-RoversApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +226,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041343A226AFE5DF00153CF1 /* Build configuration list for PBXNativeTarget "RoversApp" */;
 			buildPhases = (
+				A62DB39660096E983BA9DA85 /* [CP] Check Pods Manifest.lock */,
 				0413438A26AFE5DE00153CF1 /* Sources */,
 				0413438B26AFE5DE00153CF1 /* Frameworks */,
 				0413438C26AFE5DE00153CF1 /* Resources */,
+				31A73665403FBFD94958C8B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,11 +283,55 @@
 				0413439E26AFE5DF00153CF1 /* LaunchScreen.storyboard in Resources */,
 				049DEC6D26AFF924001F57D6 /* CuriosityViewController.xib in Resources */,
 				0413439B26AFE5DF00153CF1 /* Assets.xcassets in Resources */,
+				04EC066526B02ED500BAEF7E /* PhotosCollectionView.xib in Resources */,
+				04EC065E26B00E7D00BAEF7E /* DetailPopUpViewController.xib in Resources */,
 				049DEC8126AFF93D001F57D6 /* RoversCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31A73665403FBFD94958C8B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoversApp/Pods-RoversApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoversApp/Pods-RoversApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoversApp/Pods-RoversApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A62DB39660096E983BA9DA85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoversApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0413438A26AFE5DE00153CF1 /* Sources */ = {
@@ -235,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				049DEC8E26AFF945001F57D6 /* SpiritProtocols.swift in Sources */,
+				04EC065226B000B900BAEF7E /* PhotosResponse.swift in Sources */,
 				049DEC7A26AFF930001F57D6 /* OpportunityViewController.swift in Sources */,
 				0413439226AFE5DE00153CF1 /* AppDelegate.swift in Sources */,
 				049DEC6F26AFF924001F57D6 /* CuriosityViewController.swift in Sources */,
@@ -242,13 +347,16 @@
 				049DEC7926AFF930001F57D6 /* OpportunityProtocols.swift in Sources */,
 				049DEC8F26AFF945001F57D6 /* SpiritPresenter.swift in Sources */,
 				049DEC6A26AFF924001F57D6 /* CuriosityPresenter.swift in Sources */,
+				04EC066926B0430400BAEF7E /* Extensions.swift in Sources */,
 				049DEC6926AFF924001F57D6 /* CuriosityRouter.swift in Sources */,
 				049DEC8D26AFF945001F57D6 /* SpiritInteractor.swift in Sources */,
 				049DEC8B26AFF945001F57D6 /* SpiritViewController.swift in Sources */,
 				049DEC6E26AFF924001F57D6 /* CuriosityInteractor.swift in Sources */,
 				049DEC7726AFF930001F57D6 /* OpportunityInteractor.swift in Sources */,
 				049DEC9026AFF945001F57D6 /* SpiritRouter.swift in Sources */,
+				04EC066226B02EC400BAEF7E /* PhotosCollectionView.swift in Sources */,
 				049DEC6B26AFF924001F57D6 /* CuriosityProtocols.swift in Sources */,
+				04EC065D26B00E7D00BAEF7E /* DetailPopUpViewController.swift in Sources */,
 				049DEC7C26AFF930001F57D6 /* OpportunityPresenter.swift in Sources */,
 				049DEC8326AFF93D001F57D6 /* RoversCollectionViewCell.swift in Sources */,
 				049DEC7826AFF930001F57D6 /* OpportunityRouter.swift in Sources */,
@@ -387,6 +495,7 @@
 		};
 		041343A326AFE5DF00153CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324A506E87A568CD55A3C001 /* Pods-RoversApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -406,6 +515,7 @@
 		};
 		041343A426AFE5DF00153CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99B6B695DCFDFB7DD8F2A26E /* Pods-RoversApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

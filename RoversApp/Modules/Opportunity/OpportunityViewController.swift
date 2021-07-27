@@ -7,40 +7,45 @@
 
 import UIKit
 
-class OpportunityViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+class OpportunityViewController: BaseViewController {
+    @IBOutlet weak var collectionView: PhotosCollectionView!
     var presenter: OpportunityPresenterInput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter.getOpportunityPhotos()
         collectionView.delegate = self
-        collectionView.dataSource = self
-        let nibRowCell = UINib(nibName: roversCellIdentifier, bundle: nil)
-        collectionView.register(nibRowCell, forCellWithReuseIdentifier: roversCellIdentifier)
-       
+        camessss(type: .Opportunity)
+        delegate = self
     }
-
 }
 
+//MARK: - PresenterOutput
 extension OpportunityViewController: OpportunityPresenterOutput {
-    
-}
-
-extension OpportunityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 19
+    func didGetOpportunityPhotos(response: PhotosResponse) {
+        collectionView.result = response.photos ?? []
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roversCellIdentifier, for: indexPath as IndexPath) as! RoversCollectionViewCell
+    func didGetMoreOpportunityPhotos(response: PhotosResponse) {
+        collectionView.shouldGetMoreData = false
+        if (response.photos?.count ?? 0) > 0 {
+            collectionView.result.append(contentsOf: response.photos ?? [])
+        }
+    }
+}
+//MARK: - PhotosCollectionViewDelegate
+extension OpportunityViewController: PhotosCollectionViewDelegate{
+    func getMorePhotos(pageNo: Int) {
+        self.presenter.getMoreOpportunityPhotos(pageNo: pageNo)
+    }
+    
+    func navigateToDetail(detail: Photos) {
+        self.presenter.navigateToDetail(detail: detail)
+    }
+}
+
+extension OpportunityViewController: BaseViewControllerDelegate {
+    func selectedCam(select: String) {
        
-        return cell
-    }
-    
-    
-}
-
-extension OpportunityViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width, height: 200)
     }
 }

@@ -18,7 +18,7 @@ class SpiritRouter {
         presenter.interactor = interactor
         presenter.router = self
         presenter.view = self.view
-        view.title = "Spirit"
+        view.title = RoverType.Spirit.rawValue
         view.presenter = presenter
         interactor.output = presenter
         let controller = view
@@ -30,5 +30,13 @@ class SpiritRouter {
 }
 
 extension SpiritRouter: SpiritRouterProtocol {
+    func navigateToDetail(detail: Photos) {
+        let vc = DetailPopUpViewController()
+        
+        vc.detail = detail
+        vc.modalPresentationStyle = .overFullScreen
+        self.view.present(vc, animated: true, completion: nil)
+    }
+    
     
 }

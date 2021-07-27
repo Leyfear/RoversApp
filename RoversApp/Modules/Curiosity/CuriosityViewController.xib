@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CuriosityViewController" customModule="RoversApp" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="OhH-Qo-Z2U" id="osv-UV-oMO"/>
+                <outlet property="collectionView" destination="6aE-HZ-MzT" id="Xq3-mb-sA2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,24 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OhH-Qo-Z2U">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aE-HZ-MzT" customClass="PhotosCollectionView" customModule="RoversApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gYe-pB-nVA">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="OhH-Qo-Z2U" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IFY-x4-Yfv"/>
-                <constraint firstItem="OhH-Qo-Z2U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PeJ-2x-U2O"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OhH-Qo-Z2U" secondAttribute="trailing" id="aNH-pZ-fKn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OhH-Qo-Z2U" secondAttribute="bottom" id="sp0-3M-rpy"/>
+                <constraint firstItem="6aE-HZ-MzT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5wL-OF-ATH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6aE-HZ-MzT" secondAttribute="trailing" id="Fbc-I4-t7c"/>
+                <constraint firstItem="6aE-HZ-MzT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XI7-te-586"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6aE-HZ-MzT" secondAttribute="bottom" id="aAk-Hc-WKq"/>
             </constraints>
             <point key="canvasLocation" x="67" y="109"/>
         </view>
