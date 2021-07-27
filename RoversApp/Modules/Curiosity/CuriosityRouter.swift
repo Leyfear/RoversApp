@@ -21,7 +21,11 @@ class CuriosityRouter {
         view.title = "Curiosity"
         view.presenter = presenter
         interactor.output = presenter
-        return view
+        let controller = view
+        let nc = UINavigationController(rootViewController: controller)
+        nc.navigationBar.isTranslucent = false
+        nc.navigationBar.tintColor = UIColor.white
+        return nc
     }
 }
 

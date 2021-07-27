@@ -8,22 +8,58 @@
 
 /* Begin PBXBuildFile section */
 		0413439226AFE5DE00153CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413439126AFE5DE00153CF1 /* AppDelegate.swift */; };
-		0413439426AFE5DE00153CF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413439326AFE5DE00153CF1 /* SceneDelegate.swift */; };
-		0413439626AFE5DE00153CF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413439526AFE5DE00153CF1 /* ViewController.swift */; };
-		0413439926AFE5DE00153CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0413439726AFE5DE00153CF1 /* Main.storyboard */; };
 		0413439B26AFE5DF00153CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0413439A26AFE5DF00153CF1 /* Assets.xcassets */; };
 		0413439E26AFE5DF00153CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0413439C26AFE5DF00153CF1 /* LaunchScreen.storyboard */; };
+		049DEC6026AFF913001F57D6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC5F26AFF913001F57D6 /* Constant.swift */; };
+		049DEC6926AFF924001F57D6 /* CuriosityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6226AFF924001F57D6 /* CuriosityRouter.swift */; };
+		049DEC6A26AFF924001F57D6 /* CuriosityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6326AFF924001F57D6 /* CuriosityPresenter.swift */; };
+		049DEC6B26AFF924001F57D6 /* CuriosityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6426AFF924001F57D6 /* CuriosityProtocols.swift */; };
+		049DEC6D26AFF924001F57D6 /* CuriosityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049DEC6626AFF924001F57D6 /* CuriosityViewController.xib */; };
+		049DEC6E26AFF924001F57D6 /* CuriosityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6726AFF924001F57D6 /* CuriosityInteractor.swift */; };
+		049DEC6F26AFF924001F57D6 /* CuriosityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6826AFF924001F57D6 /* CuriosityViewController.swift */; };
+		049DEC7726AFF930001F57D6 /* OpportunityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC7126AFF930001F57D6 /* OpportunityInteractor.swift */; };
+		049DEC7826AFF930001F57D6 /* OpportunityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC7226AFF930001F57D6 /* OpportunityRouter.swift */; };
+		049DEC7926AFF930001F57D6 /* OpportunityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC7326AFF930001F57D6 /* OpportunityProtocols.swift */; };
+		049DEC7A26AFF930001F57D6 /* OpportunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC7426AFF930001F57D6 /* OpportunityViewController.swift */; };
+		049DEC7B26AFF930001F57D6 /* OpportunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049DEC7526AFF930001F57D6 /* OpportunityViewController.xib */; };
+		049DEC7C26AFF930001F57D6 /* OpportunityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC7626AFF930001F57D6 /* OpportunityPresenter.swift */; };
+		049DEC8126AFF93D001F57D6 /* RoversCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049DEC7E26AFF93D001F57D6 /* RoversCollectionViewCell.xib */; };
+		049DEC8326AFF93D001F57D6 /* RoversCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8026AFF93D001F57D6 /* RoversCollectionViewCell.swift */; };
+		049DEC8B26AFF945001F57D6 /* SpiritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8526AFF945001F57D6 /* SpiritViewController.swift */; };
+		049DEC8C26AFF945001F57D6 /* SpiritViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049DEC8626AFF945001F57D6 /* SpiritViewController.xib */; };
+		049DEC8D26AFF945001F57D6 /* SpiritInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8726AFF945001F57D6 /* SpiritInteractor.swift */; };
+		049DEC8E26AFF945001F57D6 /* SpiritProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8826AFF945001F57D6 /* SpiritProtocols.swift */; };
+		049DEC8F26AFF945001F57D6 /* SpiritPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8926AFF945001F57D6 /* SpiritPresenter.swift */; };
+		049DEC9026AFF945001F57D6 /* SpiritRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC8A26AFF945001F57D6 /* SpiritRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0413438E26AFE5DE00153CF1 /* RoversApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoversApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0413439126AFE5DE00153CF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0413439326AFE5DE00153CF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0413439526AFE5DE00153CF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0413439826AFE5DE00153CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0413439A26AFE5DF00153CF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0413439D26AFE5DF00153CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0413439F26AFE5DF00153CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		049DEC5F26AFF913001F57D6 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		049DEC6226AFF924001F57D6 /* CuriosityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityRouter.swift; sourceTree = "<group>"; };
+		049DEC6326AFF924001F57D6 /* CuriosityPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityPresenter.swift; sourceTree = "<group>"; };
+		049DEC6426AFF924001F57D6 /* CuriosityProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityProtocols.swift; sourceTree = "<group>"; };
+		049DEC6626AFF924001F57D6 /* CuriosityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuriosityViewController.xib; sourceTree = "<group>"; };
+		049DEC6726AFF924001F57D6 /* CuriosityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityInteractor.swift; sourceTree = "<group>"; };
+		049DEC6826AFF924001F57D6 /* CuriosityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityViewController.swift; sourceTree = "<group>"; };
+		049DEC7126AFF930001F57D6 /* OpportunityInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityInteractor.swift; sourceTree = "<group>"; };
+		049DEC7226AFF930001F57D6 /* OpportunityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityRouter.swift; sourceTree = "<group>"; };
+		049DEC7326AFF930001F57D6 /* OpportunityProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityProtocols.swift; sourceTree = "<group>"; };
+		049DEC7426AFF930001F57D6 /* OpportunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityViewController.swift; sourceTree = "<group>"; };
+		049DEC7526AFF930001F57D6 /* OpportunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpportunityViewController.xib; sourceTree = "<group>"; };
+		049DEC7626AFF930001F57D6 /* OpportunityPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityPresenter.swift; sourceTree = "<group>"; };
+		049DEC7E26AFF93D001F57D6 /* RoversCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoversCollectionViewCell.xib; sourceTree = "<group>"; };
+		049DEC8026AFF93D001F57D6 /* RoversCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoversCollectionViewCell.swift; sourceTree = "<group>"; };
+		049DEC8526AFF945001F57D6 /* SpiritViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritViewController.swift; sourceTree = "<group>"; };
+		049DEC8626AFF945001F57D6 /* SpiritViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpiritViewController.xib; sourceTree = "<group>"; };
+		049DEC8726AFF945001F57D6 /* SpiritInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritInteractor.swift; sourceTree = "<group>"; };
+		049DEC8826AFF945001F57D6 /* SpiritProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritProtocols.swift; sourceTree = "<group>"; };
+		049DEC8926AFF945001F57D6 /* SpiritPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritPresenter.swift; sourceTree = "<group>"; };
+		049DEC8A26AFF945001F57D6 /* SpiritRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpiritRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +92,73 @@
 		0413439026AFE5DE00153CF1 /* RoversApp */ = {
 			isa = PBXGroup;
 			children = (
+				049DEC5F26AFF913001F57D6 /* Constant.swift */,
 				0413439126AFE5DE00153CF1 /* AppDelegate.swift */,
-				0413439326AFE5DE00153CF1 /* SceneDelegate.swift */,
-				0413439526AFE5DE00153CF1 /* ViewController.swift */,
-				0413439726AFE5DE00153CF1 /* Main.storyboard */,
+				04EC064926AFFC5700BAEF7E /* Modules */,
 				0413439A26AFE5DF00153CF1 /* Assets.xcassets */,
 				0413439C26AFE5DF00153CF1 /* LaunchScreen.storyboard */,
 				0413439F26AFE5DF00153CF1 /* Info.plist */,
 			);
 			path = RoversApp;
+			sourceTree = "<group>";
+		};
+		04EC064126AFFC1A00BAEF7E /* Curiosity */ = {
+			isa = PBXGroup;
+			children = (
+				049DEC6726AFF924001F57D6 /* CuriosityInteractor.swift */,
+				049DEC6326AFF924001F57D6 /* CuriosityPresenter.swift */,
+				049DEC6426AFF924001F57D6 /* CuriosityProtocols.swift */,
+				049DEC6226AFF924001F57D6 /* CuriosityRouter.swift */,
+				049DEC6826AFF924001F57D6 /* CuriosityViewController.swift */,
+				049DEC6626AFF924001F57D6 /* CuriosityViewController.xib */,
+			);
+			path = Curiosity;
+			sourceTree = "<group>";
+		};
+		04EC064326AFFC3600BAEF7E /* Opportunity */ = {
+			isa = PBXGroup;
+			children = (
+				049DEC7126AFF930001F57D6 /* OpportunityInteractor.swift */,
+				049DEC7626AFF930001F57D6 /* OpportunityPresenter.swift */,
+				049DEC7326AFF930001F57D6 /* OpportunityProtocols.swift */,
+				049DEC7226AFF930001F57D6 /* OpportunityRouter.swift */,
+				049DEC7426AFF930001F57D6 /* OpportunityViewController.swift */,
+				049DEC7526AFF930001F57D6 /* OpportunityViewController.xib */,
+			);
+			path = Opportunity;
+			sourceTree = "<group>";
+		};
+		04EC064526AFFC4400BAEF7E /* Spirit */ = {
+			isa = PBXGroup;
+			children = (
+				049DEC8726AFF945001F57D6 /* SpiritInteractor.swift */,
+				049DEC8926AFF945001F57D6 /* SpiritPresenter.swift */,
+				049DEC8826AFF945001F57D6 /* SpiritProtocols.swift */,
+				049DEC8A26AFF945001F57D6 /* SpiritRouter.swift */,
+				049DEC8526AFF945001F57D6 /* SpiritViewController.swift */,
+				049DEC8626AFF945001F57D6 /* SpiritViewController.xib */,
+			);
+			path = Spirit;
+			sourceTree = "<group>";
+		};
+		04EC064726AFFC4E00BAEF7E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				049DEC8026AFF93D001F57D6 /* RoversCollectionViewCell.swift */,
+				049DEC7E26AFF93D001F57D6 /* RoversCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		04EC064926AFFC5700BAEF7E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				04EC064126AFFC1A00BAEF7E /* Curiosity */,
+				04EC064326AFFC3600BAEF7E /* Opportunity */,
+				04EC064526AFFC4400BAEF7E /* Spirit */,
+				04EC064726AFFC4E00BAEF7E /* Cell */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +218,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049DEC7B26AFF930001F57D6 /* OpportunityViewController.xib in Resources */,
+				049DEC8C26AFF945001F57D6 /* SpiritViewController.xib in Resources */,
 				0413439E26AFE5DF00153CF1 /* LaunchScreen.storyboard in Resources */,
+				049DEC6D26AFF924001F57D6 /* CuriosityViewController.xib in Resources */,
 				0413439B26AFE5DF00153CF1 /* Assets.xcassets in Resources */,
-				0413439926AFE5DE00153CF1 /* Main.storyboard in Resources */,
+				049DEC8126AFF93D001F57D6 /* RoversCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +234,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0413439626AFE5DE00153CF1 /* ViewController.swift in Sources */,
+				049DEC8E26AFF945001F57D6 /* SpiritProtocols.swift in Sources */,
+				049DEC7A26AFF930001F57D6 /* OpportunityViewController.swift in Sources */,
 				0413439226AFE5DE00153CF1 /* AppDelegate.swift in Sources */,
-				0413439426AFE5DE00153CF1 /* SceneDelegate.swift in Sources */,
+				049DEC6F26AFF924001F57D6 /* CuriosityViewController.swift in Sources */,
+				049DEC6026AFF913001F57D6 /* Constant.swift in Sources */,
+				049DEC7926AFF930001F57D6 /* OpportunityProtocols.swift in Sources */,
+				049DEC8F26AFF945001F57D6 /* SpiritPresenter.swift in Sources */,
+				049DEC6A26AFF924001F57D6 /* CuriosityPresenter.swift in Sources */,
+				049DEC6926AFF924001F57D6 /* CuriosityRouter.swift in Sources */,
+				049DEC8D26AFF945001F57D6 /* SpiritInteractor.swift in Sources */,
+				049DEC8B26AFF945001F57D6 /* SpiritViewController.swift in Sources */,
+				049DEC6E26AFF924001F57D6 /* CuriosityInteractor.swift in Sources */,
+				049DEC7726AFF930001F57D6 /* OpportunityInteractor.swift in Sources */,
+				049DEC9026AFF945001F57D6 /* SpiritRouter.swift in Sources */,
+				049DEC6B26AFF924001F57D6 /* CuriosityProtocols.swift in Sources */,
+				049DEC7C26AFF930001F57D6 /* OpportunityPresenter.swift in Sources */,
+				049DEC8326AFF93D001F57D6 /* RoversCollectionViewCell.swift in Sources */,
+				049DEC7826AFF930001F57D6 /* OpportunityRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0413439726AFE5DE00153CF1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0413439826AFE5DE00153CF1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0413439C26AFE5DF00153CF1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

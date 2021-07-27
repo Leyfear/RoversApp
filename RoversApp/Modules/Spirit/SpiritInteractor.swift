@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class SpiritInteractor {
+    var output: SpiritPresenterOutput?
+}
+
+extension SpiritInteractor: SpiritInteractorInput {
+
+    
+}
+

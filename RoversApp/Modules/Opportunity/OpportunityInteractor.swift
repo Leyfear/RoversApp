@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class OpportunityInteractor {
+    var output: OpportunityPresenterOutput?
+}
+
+extension OpportunityInteractor: OpportunityInteractorInput {
+
+    
+}
+

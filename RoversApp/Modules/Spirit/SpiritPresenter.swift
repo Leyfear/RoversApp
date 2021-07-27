@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class SpiritPresenter {
+    var view: SpiritPresenterOutput?
+    var interactor: SpiritInteractorInput?
+    var router: SpiritRouterProtocol?
+}
+
+extension SpiritPresenter: SpiritPresenterInput {
+  
+}
+
+
+extension SpiritPresenter: SpiritPresenterOutput {
+
+}
+

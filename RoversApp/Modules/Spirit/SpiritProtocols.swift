@@ -5,4 +5,22 @@
 //  Created by Tutku on 27.07.2021.
 //
 
-import Foundation
+protocol SpiritPresenterInput {
+    
+}
+
+protocol SpiritPresenterOutput {
+    
+}
+protocol SpiritInteractorOutput {
+    
+}
+
+protocol SpiritInteractorInput {
+    
+}
+
+protocol SpiritRouterProtocol{
+    
+}
+

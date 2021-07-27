@@ -5,4 +5,22 @@
 //  Created by Tutku on 27.07.2021.
 //
 
-import Foundation
+protocol OpportunityPresenterInput {
+    
+}
+
+protocol OpportunityPresenterOutput {
+    
+}
+protocol OpportunityInteractorOutput {
+    
+}
+
+protocol OpportunityInteractorInput {
+    
+}
+
+protocol OpportunityRouterProtocol{
+    
+}
+

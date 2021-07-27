@@ -8,22 +8,39 @@
 import UIKit
 
 class OpportunityViewController: UIViewController {
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    var presenter: OpportunityPresenterInput!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let nibRowCell = UINib(nibName: roversCellIdentifier, bundle: nil)
+        collectionView.register(nibRowCell, forCellWithReuseIdentifier: roversCellIdentifier)
+       
     }
 
+}
 
-    /*
-    // MARK: - Navigation
+extension OpportunityViewController: OpportunityPresenterOutput {
+    
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension OpportunityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 19
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: roversCellIdentifier, for: indexPath as IndexPath) as! RoversCollectionViewCell
+       
+        return cell
+    }
+    
+    
+}
 
+extension OpportunityViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.collectionView.frame.width, height: 200)
+    }
 }
