@@ -14,6 +14,14 @@ class OpportunityPresenter {
 }
 
 extension OpportunityPresenter: OpportunityPresenterInput {
+    func getCameraFilterOpportunityPhotos(camera: String) {
+        self.interactor?.getCameraFilterOpportunityPhotos(camera: camera)
+    }
+    
+    func getMoreCameraFilterOpportunityPhotos(camera: String, pageNo: Int) {
+        self.interactor?.getMoreCameraFilterOpportunityPhotos(camera: camera, pageNo: pageNo)
+    }
+    
     func getOpportunityPhotos() {
         self.interactor?.getOpportunityPhotos()
     }
@@ -31,6 +39,14 @@ extension OpportunityPresenter: OpportunityPresenterInput {
 
 
 extension OpportunityPresenter: OpportunityPresenterOutput {
+    func didGetCameraFilterOpportunityPhotos(response: PhotosResponse) {
+        self.view?.didGetCameraFilterOpportunityPhotos(response: response)
+    }
+    
+    func didGetMoreCameraFilterOpportunityPhotos(response: PhotosResponse) {
+        self.view?.didGetMoreCameraFilterOpportunityPhotos(response: response)
+    }
+    
     func didGetOpportunityPhotos(response: PhotosResponse) {
         self.view?.didGetOpportunityPhotos(response: response)
     }

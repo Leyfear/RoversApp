@@ -15,14 +15,27 @@ class OpportunityViewController: BaseViewController {
         super.viewDidLoad()
         self.presenter.getOpportunityPhotos()
         collectionView.delegate = self
-        camessss(type: .Opportunity)
+        controller(title: .Opportunity)
         delegate = self
     }
 }
 
 //MARK: - PresenterOutput
 extension OpportunityViewController: OpportunityPresenterOutput {
+    func didGetCameraFilterOpportunityPhotos(response: PhotosResponse) {
+        collectionView.pageNo = 0
+        collectionView.result = response.photos ?? []
+    }
+    
+    func didGetMoreCameraFilterOpportunityPhotos(response: PhotosResponse) {
+        collectionView.shouldGetMoreData = false
+        if (response.photos?.count ?? 0) > 0 {
+            collectionView.result.append(contentsOf: response.photos ?? [])
+        }
+    }
+    
     func didGetOpportunityPhotos(response: PhotosResponse) {
+        collectionView.pageNo = 0
         collectionView.result = response.photos ?? []
     }
     
@@ -44,8 +57,13 @@ extension OpportunityViewController: PhotosCollectionViewDelegate{
     }
 }
 
+//MARK: - BaseViewControllerDelegate
 extension OpportunityViewController: BaseViewControllerDelegate {
     func selectedCam(select: String) {
-       
+        if selectedCamera == "" || selectedCamera == nil {
+            self.presenter.getOpportunityPhotos()
+        }else{
+            self.presenter.getCameraFilterOpportunityPhotos(camera: select)
+        }
     }
 }

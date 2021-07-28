@@ -16,13 +16,26 @@ class SpiritViewController: BaseViewController {
         super.viewDidLoad()
         self.presenter.getSpiritPhotos()
         collectionView.delegate = self
-        camessss(type: .Spirit)
+        controller(title: .Spirit)
+        delegate = self
     }
-    
 }
 //MARK: - PresenterOutput
 extension SpiritViewController: SpiritPresenterOutput {
+    func didGetCameraFilterSpiritPhotos(response: PhotosResponse) {
+        collectionView.pageNo = 0
+        collectionView.result = response.photos ?? []
+    }
+    
+    func didGetMoreCameraFilterSpiritPhotos(response: PhotosResponse) {
+        collectionView.shouldGetMoreData = false
+        if (response.photos?.count ?? 0) > 0 {
+            collectionView.result.append(contentsOf: response.photos ?? [])
+        }
+    }
+    
     func didGetSpiritPhotos(response: PhotosResponse) {
+        collectionView.pageNo = 0
         self.collectionView.result = response.photos ?? []
     }
     
@@ -42,5 +55,16 @@ extension SpiritViewController: PhotosCollectionViewDelegate {
     func getMorePhotos(pageNo: Int) {
         self.collectionView.shouldGetMoreData = false
         self.presenter.getMoreSpiritPhotos(pageNo: pageNo)
+    }
+}
+
+//MARK: - BaseViewControllerDelegate
+extension SpiritViewController: BaseViewControllerDelegate {
+    func selectedCam(select: String) {
+        if selectedCamera == "" || selectedCamera == nil {
+            self.presenter.getSpiritPhotos()
+        }else{
+            self.presenter.getCameraFilterSpiritPhotos(camera: select)
+        }
     }
 }

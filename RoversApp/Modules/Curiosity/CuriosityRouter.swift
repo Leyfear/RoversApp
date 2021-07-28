@@ -31,12 +31,9 @@ class CuriosityRouter {
 
 extension CuriosityRouter: CuriosityRouterProtocol {
     func navigateToDetail(detail: Photos) {
-      
         let vc = DetailPopUpViewController()
-      
         vc.detail = detail
-        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationStyle = .popover
         self.view.present(vc, animated: true, completion: nil)
-       
     }
 }
