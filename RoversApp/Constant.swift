@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import Foundation
+
 let baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/"
-let apiKey = "5LXHB3fTUUTX2gsmVjrgrQ6zGNF5mVHFuntQw2r5"
+let apiKey = "cQQfYB1wuyaeS7f2qVTsoJ1dhahHy0YbWv9mz66n"
 let curiosity = "curiosity"
 let opportunity = "opportunity"
 let spirit = "spirit"

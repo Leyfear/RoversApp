@@ -14,6 +14,14 @@ class SpiritPresenter {
 }
 
 extension SpiritPresenter: SpiritPresenterInput {
+    func getCameraFilterSpiritPhotos(camera: String) {
+        self.interactor?.getCameraFilterSpiritPhotos(camera: camera)
+    }
+    
+    func getMoreCameraFilterSpiritPhotos(camera: String, pageNo: Int) {
+        self.interactor?.getMoreCameraFilterSpiritPhotos(camera: camera, pageNo: pageNo)
+    }
+    
     func getSpiritPhotos() {
         self.interactor?.getSpiritPhotos()
     }
@@ -29,6 +37,14 @@ extension SpiritPresenter: SpiritPresenterInput {
 
 
 extension SpiritPresenter: SpiritPresenterOutput {
+    func didGetCameraFilterSpiritPhotos(response: PhotosResponse) {
+        self.view?.didGetCameraFilterSpiritPhotos(response: response)
+    }
+    
+    func didGetMoreCameraFilterSpiritPhotos(response: PhotosResponse) {
+        self.view?.didGetMoreCameraFilterSpiritPhotos(response: response)
+    }
+    
     func didGetSpiritPhotos(response: PhotosResponse) {
         self.view?.didGetSpiritPhotos(response: response)
     }

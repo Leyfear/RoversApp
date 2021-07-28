@@ -14,6 +14,14 @@ class CuriosityPresenter {
 }
 
 extension CuriosityPresenter: CuriosityPresenterInput {
+    func getMoreCameraFilterCuriosityPhotos(camera: String, pageNo: Int) {
+        self.interactor?.getMoreCameraFilterCuriosityPhotos(camera: camera, pageNo: pageNo)
+    }
+    
+    func getCameraFilterCuriosityPhotos(camera: String) {
+        self.interactor?.getCameraFilterCuriosityPhotos(camera:camera)
+    }
+    
     func navigateToDetail(detail: Photos) {
         self.router?.navigateToDetail(detail: detail)
     }
@@ -29,6 +37,14 @@ extension CuriosityPresenter: CuriosityPresenterInput {
 
 
 extension CuriosityPresenter: CuriosityPresenterOutput {
+    func didGetMoreCameraFilterCuriosityPhotos(response: PhotosResponse) {
+        self.view?.didGetMoreCuriosityPhotos(response: response)
+    }
+    
+    func didGetCameraFilterCuriosityPhotos(response: PhotosResponse) {
+        self.view?.didGetCameraFilterCuriosityPhotos(response:response)
+    }
+    
     func didGetMoreCuriosityPhotos(response: PhotosResponse) {
         self.view?.didGetMoreCuriosityPhotos(response:response)
     }

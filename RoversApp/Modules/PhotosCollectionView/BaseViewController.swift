@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  BaseViewController.swift
 //  RoversApp
 //
 //  Created by Tutku on 27.07.2021.
@@ -17,36 +17,32 @@ class BaseViewController: UIViewController {
     let picketTextField = UITextField(frame: .zero)
     let toolBar = UIToolbar()
     var cameraNames = [String]()
-    var selectedCam: String?
+    var selectedCamera: String?
     var delegate: BaseViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         filterPickerView.delegate = self
         filterPickerView.dataSource = self
-        addNavigationBarButton(imageName: "house", direction: .right)
+        addNavigationBarButton()
         pickerViewAddToolbar()
     }
     
-    func camessss(type: RoverType) {
-        switch type {
+    func controller(title: RoverType) {
+        switch title {
         case .Curiosity:
-            cameraNames = ["FHAZ", "RHAZ","MAST","CHEMCAM","MAHLI","MARDI","NAVCAM"]
+            cameraNames = ["ALL","FHAZ", "RHAZ","MAST","CHEMCAM","MAHLI","MARDI","NAVCAM"]
         case .Opportunity:
-            cameraNames = ["FHAZ", "RHAZ","NAVCAM","PANCAM","MINITES"]
+            cameraNames = ["ALL","FHAZ", "RHAZ","NAVCAM","PANCAM","MINITES"]
         case .Spirit:
-            cameraNames = ["FHAZ", "RHAZ","NAVCAM","PANCAM","MINITES"]
+            cameraNames = ["ALL","FHAZ", "RHAZ","NAVCAM","PANCAM","MINITES"]
         }
     }
     
-    public func addNavigationBarButton(imageName:String,direction:direction){
-        var image = UIImage(systemName: imageName)
+    public func addNavigationBarButton(){
+        var image = UIImage(named: "filterIcon")
         image = image?.withRenderingMode(.alwaysOriginal)
-        switch direction {
-        case .left:
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: self, action: #selector(goBack))
-        case .right:
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: self, action: #selector(goBack))
-        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: self, action: #selector(goBack))
     }
     
     @objc public func goBack() {
@@ -58,7 +54,7 @@ class BaseViewController: UIViewController {
         
     private func pickerViewAddToolbar() {
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Tamam", style: .plain, target: self, action: #selector(doneButtonTapped))
+        let doneButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(doneButtonTapped))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         toolBar.setItems([spaceButton,doneButton], animated: false)
     }
@@ -67,17 +63,17 @@ class BaseViewController: UIViewController {
         view.endEditing(true)
     }
     
-    public enum direction {
-        case right
-        case left
-    }
 }
 
 //MARK: UIPickerViewDelegateAndDataSource
 extension BaseViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectedCam(select: cameraNames[row])
+        selectedCamera = cameraNames[row]
+        if selectedCamera == "ALL" {
+            selectedCamera = ""
+        }
+        delegate?.selectedCam(select: selectedCamera ?? "")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
