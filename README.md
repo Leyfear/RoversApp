@@ -1,6 +1,6 @@
 
 # RoversApp
-NASA Mars gezicilerinden görüntüleri görüntüleyen bir iOS uygulaması.
+An iOS app that displays images from NASA Mars rovers.
 ## Installation
 Just download and run.
 ## Scenes
