@@ -13,14 +13,17 @@ protocol PhotosCollectionViewDelegate {
 }
 
 class PhotosCollectionView: UIView {
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var delegate: PhotosCollectionViewDelegate?
     var pageNo = 0
-    var shouldGetMoreData: Bool = true
+    var getMoreData: Bool = true
     var result: [Photos] = [] {
         didSet {
-            shouldGetMoreData = true
+            getMoreData = true
             collectionView.reloadData()
         }
     }
@@ -47,6 +50,7 @@ class PhotosCollectionView: UIView {
     }
 }
 
+//MARK: - UICollectionViewDelegate,UICollectionViewDataSource
 extension PhotosCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return result.count
@@ -64,7 +68,7 @@ extension PhotosCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (indexPath.row == (self.result.count) - 1) && (self.shouldGetMoreData){
+        if (indexPath.row == (self.result.count) - 1) && (self.getMoreData){
             pageNo += 1
             delegate?.getMorePhotos(pageNo: pageNo)
         }
@@ -72,9 +76,8 @@ extension PhotosCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
 }
 
 
-
+//MARK: - UICollectionViewDelegateFlowLayout
 extension PhotosCollectionView: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height * 0.45)
     }

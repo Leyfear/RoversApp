@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol BaseViewControllerDelegate {
-    func selectedCam(select: String)
+    func selectedCameraType(name: String)
 }
 
 class BaseViewController: UIViewController {
@@ -19,13 +19,19 @@ class BaseViewController: UIViewController {
     var cameraNames = [String]()
     var selectedCamera: String?
     var delegate: BaseViewControllerDelegate?
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         filterPickerView.delegate = self
         filterPickerView.dataSource = self
         addNavigationBarButton()
         pickerViewAddToolbar()
+    }
+    
+     func showAlert() {
+        let alert = UIAlertController(title: "Error", message: "Something went wrong.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     func controller(title: RoverType) {
@@ -42,10 +48,10 @@ class BaseViewController: UIViewController {
     public func addNavigationBarButton(){
         var image = UIImage(named: "filterIcon")
         image = image?.withRenderingMode(.alwaysOriginal)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: self, action: #selector(goBack))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: self, action: #selector(filterButtonTapped))
     }
     
-    @objc public func goBack() {
+    @objc public func filterButtonTapped() {
         view.addSubview(picketTextField)
         picketTextField.inputView = filterPickerView
         picketTextField.inputAccessoryView = toolBar
@@ -54,12 +60,12 @@ class BaseViewController: UIViewController {
         
     private func pickerViewAddToolbar() {
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(doneButtonTapped))
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonTapped))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        toolBar.setItems([spaceButton,doneButton], animated: false)
+        toolBar.setItems([closeButton,spaceButton], animated: false)
     }
     
-    @objc func doneButtonTapped() {
+    @objc func closeButtonTapped() {
         view.endEditing(true)
     }
     
@@ -73,7 +79,7 @@ extension BaseViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if selectedCamera == "ALL" {
             selectedCamera = ""
         }
-        delegate?.selectedCam(select: selectedCamera ?? "")
+        delegate?.selectedCameraType(name: selectedCamera ?? "")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

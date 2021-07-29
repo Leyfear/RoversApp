@@ -14,43 +14,25 @@ class CuriosityPresenter {
 }
 
 extension CuriosityPresenter: CuriosityPresenterInput {
-    func getMoreCameraFilterCuriosityPhotos(camera: String, pageNo: Int) {
-        self.interactor?.getMoreCameraFilterCuriosityPhotos(camera: camera, pageNo: pageNo)
-    }
-    
-    func getCameraFilterCuriosityPhotos(camera: String) {
-        self.interactor?.getCameraFilterCuriosityPhotos(camera:camera)
+    func getCameraFilterCuriosityPhotos(camera: String, pageNo: Int) {
+        self.interactor?.getCameraFilterCuriosityPhotos(camera: camera, pageNo: pageNo)
     }
     
     func navigateToDetail(detail: Photos) {
         self.router?.navigateToDetail(detail: detail)
     }
     
-    func getMoreCuriosityPhotos(pageNo: Int) {
-        self.interactor?.getMoreCuriosityPhotos(pageNo:pageNo)
-    }
-    
-    func getCuriosityPhotos() {
-        self.interactor?.getCuriosityPhotos()
+    func getCuriosityPhotos(pageNo: Int) {
+        self.interactor?.getCuriosityPhotos(pageNo:pageNo)
     }
 }
 
-
 extension CuriosityPresenter: CuriosityPresenterOutput {
-    func didGetMoreCameraFilterCuriosityPhotos(response: PhotosResponse) {
-        self.view?.didGetMoreCuriosityPhotos(response: response)
-    }
-    
-    func didGetCameraFilterCuriosityPhotos(response: PhotosResponse) {
-        self.view?.didGetCameraFilterCuriosityPhotos(response:response)
-    }
-    
-    func didGetMoreCuriosityPhotos(response: PhotosResponse) {
-        self.view?.didGetMoreCuriosityPhotos(response:response)
+    func didGetError() {
+        self.view?.didGetError()
     }
     
     func didGetCuriosityPhotos(response: PhotosResponse) {
         self.view?.didGetCuriosityPhotos(response:response)
     }
 }
-

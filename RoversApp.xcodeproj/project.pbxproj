@@ -12,6 +12,7 @@
 		0413439E26AFE5DF00153CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0413439C26AFE5DF00153CF1 /* LaunchScreen.storyboard */; };
 		0463D15426B16DC200F654C2 /* DetailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463D15326B16DC200F654C2 /* DetailPopUpView.swift */; };
 		0463D15726B16DCD00F654C2 /* DetailPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0463D15626B16DCD00F654C2 /* DetailPopUpView.xib */; };
+		048ADF9626B29791006389E0 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048ADF9526B29791006389E0 /* APIManager.swift */; };
 		049DEC6026AFF913001F57D6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC5F26AFF913001F57D6 /* Constant.swift */; };
 		049DEC6926AFF924001F57D6 /* CuriosityRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6226AFF924001F57D6 /* CuriosityRouter.swift */; };
 		049DEC6A26AFF924001F57D6 /* CuriosityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DEC6326AFF924001F57D6 /* CuriosityPresenter.swift */; };
@@ -50,6 +51,7 @@
 		0413439F26AFE5DF00153CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0463D15326B16DC200F654C2 /* DetailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopUpView.swift; sourceTree = "<group>"; };
 		0463D15626B16DCD00F654C2 /* DetailPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPopUpView.xib; sourceTree = "<group>"; };
+		048ADF9526B29791006389E0 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		049DEC5F26AFF913001F57D6 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		049DEC6226AFF924001F57D6 /* CuriosityRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityRouter.swift; sourceTree = "<group>"; };
 		049DEC6326AFF924001F57D6 /* CuriosityPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuriosityPresenter.swift; sourceTree = "<group>"; };
@@ -115,15 +117,56 @@
 		0413439026AFE5DE00153CF1 /* RoversApp */ = {
 			isa = PBXGroup;
 			children = (
-				049DEC5F26AFF913001F57D6 /* Constant.swift */,
 				0413439126AFE5DE00153CF1 /* AppDelegate.swift */,
-				04EC065126B000B900BAEF7E /* PhotosResponse.swift */,
+				048ADF9C26B2DA87006389E0 /* Utils */,
+				048ADF9E26B2DAA7006389E0 /* API */,
 				04EC064926AFFC5700BAEF7E /* Modules */,
 				0413439A26AFE5DF00153CF1 /* Assets.xcassets */,
 				0413439C26AFE5DF00153CF1 /* LaunchScreen.storyboard */,
 				0413439F26AFE5DF00153CF1 /* Info.plist */,
 			);
 			path = RoversApp;
+			sourceTree = "<group>";
+		};
+		048ADF8726B1F143006389E0 /* DetailPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				0463D15326B16DC200F654C2 /* DetailPopUpView.swift */,
+				0463D15626B16DCD00F654C2 /* DetailPopUpView.xib */,
+			);
+			path = DetailPopUpView;
+			sourceTree = "<group>";
+		};
+		048ADF8826B1F16E006389E0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				04EC065126B000B900BAEF7E /* PhotosResponse.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		048ADF8A26B1F1E4006389E0 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04EC066826B0430400BAEF7E /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		048ADF9C26B2DA87006389E0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				049DEC5F26AFF913001F57D6 /* Constant.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		048ADF9E26B2DAA7006389E0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				048ADF9526B29791006389E0 /* APIManager.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		04EC064126AFFC1A00BAEF7E /* Curiosity */ = {
@@ -177,12 +220,12 @@
 		04EC064926AFFC5700BAEF7E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				048ADF8A26B1F1E4006389E0 /* BaseViewController */,
 				04EC066026B02E1800BAEF7E /* PhotosCollectionView */,
 				04EC065A26B00E1A00BAEF7E /* DetailPopUp */,
 				04EC064126AFFC1A00BAEF7E /* Curiosity */,
 				04EC064326AFFC3600BAEF7E /* Opportunity */,
 				04EC064526AFFC4400BAEF7E /* Spirit */,
-				04EC064726AFFC4E00BAEF7E /* Cell */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -190,10 +233,9 @@
 		04EC065A26B00E1A00BAEF7E /* DetailPopUp */ = {
 			isa = PBXGroup;
 			children = (
+				048ADF8726B1F143006389E0 /* DetailPopUpView */,
 				04EC065B26B00E7D00BAEF7E /* DetailPopUpViewController.swift */,
 				04EC065C26B00E7D00BAEF7E /* DetailPopUpViewController.xib */,
-				0463D15326B16DC200F654C2 /* DetailPopUpView.swift */,
-				0463D15626B16DCD00F654C2 /* DetailPopUpView.xib */,
 			);
 			path = DetailPopUp;
 			sourceTree = "<group>";
@@ -201,9 +243,10 @@
 		04EC066026B02E1800BAEF7E /* PhotosCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				048ADF8826B1F16E006389E0 /* Entities */,
+				04EC064726AFFC4E00BAEF7E /* Cell */,
 				04EC066126B02EC400BAEF7E /* PhotosCollectionView.swift */,
 				04EC066426B02ED500BAEF7E /* PhotosCollectionView.xib */,
-				04EC066826B0430400BAEF7E /* BaseViewController.swift */,
 			);
 			path = PhotosCollectionView;
 			sourceTree = "<group>";
@@ -345,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048ADF9626B29791006389E0 /* APIManager.swift in Sources */,
 				049DEC8E26AFF945001F57D6 /* SpiritProtocols.swift in Sources */,
 				04EC065226B000B900BAEF7E /* PhotosResponse.swift in Sources */,
 				049DEC7A26AFF930001F57D6 /* OpportunityViewController.swift in Sources */,

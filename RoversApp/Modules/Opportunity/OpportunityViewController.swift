@@ -13,7 +13,7 @@ class OpportunityViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter.getOpportunityPhotos()
+        self.presenter.getOpportunityPhotos(pageNo: 0)
         collectionView.delegate = self
         controller(title: .Opportunity)
         delegate = self
@@ -22,34 +22,28 @@ class OpportunityViewController: BaseViewController {
 
 //MARK: - PresenterOutput
 extension OpportunityViewController: OpportunityPresenterOutput {
-    func didGetCameraFilterOpportunityPhotos(response: PhotosResponse) {
-        collectionView.pageNo = 0
-        collectionView.result = response.photos ?? []
-    }
-    
-    func didGetMoreCameraFilterOpportunityPhotos(response: PhotosResponse) {
-        collectionView.shouldGetMoreData = false
-        if (response.photos?.count ?? 0) > 0 {
-            collectionView.result.append(contentsOf: response.photos ?? [])
-        }
+    func didGetError() {
+        showAlert()
     }
     
     func didGetOpportunityPhotos(response: PhotosResponse) {
-        collectionView.pageNo = 0
-        collectionView.result = response.photos ?? []
-    }
-    
-    func didGetMoreOpportunityPhotos(response: PhotosResponse) {
-        collectionView.shouldGetMoreData = false
+        collectionView.activityIndicator.stopAnimating()
+        collectionView.getMoreData = false
         if (response.photos?.count ?? 0) > 0 {
             collectionView.result.append(contentsOf: response.photos ?? [])
+        }else if collectionView.result.count == 0{
+            collectionView.statusLabel.isHidden = false
         }
     }
 }
 //MARK: - PhotosCollectionViewDelegate
 extension OpportunityViewController: PhotosCollectionViewDelegate{
     func getMorePhotos(pageNo: Int) {
-        self.presenter.getMoreOpportunityPhotos(pageNo: pageNo)
+        if selectedCamera == "" || selectedCamera == nil {
+            self.presenter.getOpportunityPhotos(pageNo: pageNo)
+        } else {
+            self.presenter.getCameraFilterOpportunityPhotos(camera: selectedCamera ?? "", pageNo: pageNo)
+        }
     }
     
     func navigateToDetail(detail: Photos) {
@@ -59,11 +53,14 @@ extension OpportunityViewController: PhotosCollectionViewDelegate{
 
 //MARK: - BaseViewControllerDelegate
 extension OpportunityViewController: BaseViewControllerDelegate {
-    func selectedCam(select: String) {
+    func selectedCameraType(name: String) {
+        collectionView.result.removeAll()
+        collectionView.statusLabel.isHidden = true
+        collectionView.activityIndicator.startAnimating()
         if selectedCamera == "" || selectedCamera == nil {
-            self.presenter.getOpportunityPhotos()
+            self.presenter.getOpportunityPhotos(pageNo: 0)
         }else{
-            self.presenter.getCameraFilterOpportunityPhotos(camera: select)
+            self.presenter.getCameraFilterOpportunityPhotos(camera: name, pageNo:0)
         }
     }
 }

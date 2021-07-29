@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct PhotosResponse: Codable {
+//MARK: - PhotosResponseDTO
+struct PhotosResponse: Codable,Equatable {
+
+    
 
     let photos: [Photos]?
+    static func == (lhs: PhotosResponse, rhs: PhotosResponse) -> Bool {
+        lhs.photos == rhs.photos
+    }
 
     private enum CodingKeys: String, CodingKey {
         case photos = "photos"
@@ -27,7 +33,10 @@ struct PhotosResponse: Codable {
 
 }
 
-struct Photos: Codable {
+//MARK: - PhotosResponse
+struct Photos: Codable,Equatable {
+
+    
 
     let id: Int?
     let sol: Int?
@@ -36,6 +45,10 @@ struct Photos: Codable {
     let earthDate: String?
     let rover: Rover?
 
+    static func == (lhs: Photos, rhs: Photos) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case sol = "sol"
@@ -66,7 +79,7 @@ struct Photos: Codable {
     }
 
 }
-
+//MARK: - CameraResponse
 struct Camera: Codable {
 
     let id: Int?
@@ -98,7 +111,7 @@ struct Camera: Codable {
     }
 
 }
-
+//MARK: - RoverResponse
 struct Rover: Codable {
 
     let id: Int?

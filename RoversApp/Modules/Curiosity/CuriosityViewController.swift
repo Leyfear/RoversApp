@@ -14,37 +14,26 @@ class CuriosityViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter.getCuriosityPhotos()
+        self.presenter.getCuriosityPhotos(pageNo: 0)
         collectionView.delegate = self
         controller(title: .Curiosity)
         delegate = self
     }
-    
 }
 //MARK: - PresenterOutput
 extension CuriosityViewController:CuriosityPresenterOutput {
-    func didGetMoreCameraFilterCuriosityPhotos(response: PhotosResponse) {
-        collectionView.shouldGetMoreData = false
-        if (response.photos?.count ?? 0) > 0 {
-            collectionView.result.append(contentsOf: response.photos ?? [])
-        }
-    }
-    
-    func didGetCameraFilterCuriosityPhotos(response: PhotosResponse) {
-        collectionView.pageNo = 0
-        collectionView.result = response.photos ?? []
-    }
-    
-    func didGetMoreCuriosityPhotos(response: PhotosResponse) {
-        collectionView.shouldGetMoreData = false
-        if (response.photos?.count ?? 0) > 0 {
-            collectionView.result.append(contentsOf: response.photos ?? [])
-        }
+    func didGetError() {
+        showAlert()
     }
     
     func didGetCuriosityPhotos(response: PhotosResponse) {
-        collectionView.pageNo = 0
-        collectionView.result = response.photos ?? []
+        collectionView.activityIndicator.stopAnimating()
+        collectionView.getMoreData = false
+        if (response.photos?.count ?? 0) > 0 {
+            collectionView.result.append(contentsOf: response.photos ?? [])
+        }else if collectionView.result.count == 0{
+            collectionView.statusLabel.isHidden = false
+        }
     }
 }
 
@@ -52,9 +41,9 @@ extension CuriosityViewController:CuriosityPresenterOutput {
 extension CuriosityViewController: PhotosCollectionViewDelegate{
     func getMorePhotos(pageNo: Int) {
         if selectedCamera == "" || selectedCamera == nil {
-            self.presenter.getMoreCuriosityPhotos(pageNo: pageNo)
+            self.presenter.getCuriosityPhotos(pageNo: pageNo)
         } else {
-            self.presenter.getMoreCameraFilterCuriosityPhotos(camera: selectedCamera ?? "", pageNo: pageNo)
+            self.presenter.getCameraFilterCuriosityPhotos(camera: selectedCamera ?? "", pageNo: pageNo)
         }
     }
     
@@ -64,11 +53,14 @@ extension CuriosityViewController: PhotosCollectionViewDelegate{
 }
 //MARK: - BaseViewControllerDelegate
 extension CuriosityViewController: BaseViewControllerDelegate {
-    func selectedCam(select: String) {
+    func selectedCameraType(name: String) {
+        collectionView.result.removeAll()
+        collectionView.statusLabel.isHidden = true
+        collectionView.activityIndicator.startAnimating()
         if selectedCamera == "" || selectedCamera == nil {
-            self.presenter.getCuriosityPhotos()
+            self.presenter.getCuriosityPhotos(pageNo: 0)
         }else{
-            self.presenter.getCameraFilterCuriosityPhotos(camera: select)
+            self.presenter.getCameraFilterCuriosityPhotos(camera: name, pageNo: 0)
         }
     }
 }

@@ -22,18 +22,18 @@ class SpiritRouter {
         view.presenter = presenter
         interactor.output = presenter
         let controller = view
-        let nc = UINavigationController(rootViewController: controller)
-        nc.navigationBar.isTranslucent = false
-        nc.navigationBar.tintColor = UIColor.white
-        return nc
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.tintColor = UIColor.white
+        return navigationController
     }
 }
 
 extension SpiritRouter: SpiritRouterProtocol {
     func navigateToDetail(detail: Photos) {
-        let vc = DetailPopUpViewController()
-        vc.detail = detail
-        vc.modalPresentationStyle = .popover
-        self.view.present(vc, animated: true, completion: nil)
+        let viewController = DetailPopUpViewController()
+        viewController.detail = detail
+        viewController.modalPresentationStyle = .popover
+        self.view.present(viewController, animated: true, completion: nil)
     }
 }

@@ -17,6 +17,7 @@ class DetailPopUpView: UIView {
     @IBOutlet weak var capturedDateLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var contentView: UIView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -36,6 +37,7 @@ class DetailPopUpView: UIView {
     
     func fetchDetail(detail: Photos) {
         imageView.layer.cornerRadius = 12
+        
         if let imageURL = detail.imgSrc{
             if let url = URL(string: imageURL){
                 imageView.kf.setImage(with: url)

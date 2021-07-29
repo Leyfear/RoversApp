@@ -9,99 +9,32 @@ import Foundation
 
 class SpiritInteractor {
     var output: SpiritPresenterOutput?
-    var result: PhotosResponse?
+    var apiManager = APIManager()
 }
 
 extension SpiritInteractor: SpiritInteractorInput {
-    func getCameraFilterSpiritPhotos(camera: String) {
-        let url = "\(baseURL)spirit/photos?sol=1000&camera=\(camera)&page=0&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
-            }
-            do {
-                self.result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            } catch {
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = self.result {
-                    self.output?.didGetCameraFilterSpiritPhotos(response: json)
-                }
-            }
-        }
-        task.resume()
-    }
     
-    func getMoreCameraFilterSpiritPhotos(camera: String, pageNo: Int) {
+    func getCameraFilterSpiritPhotos(camera: String, pageNo: Int) {
         let url = "\(baseURL)spirit/photos?sol=1000&camera=\(camera)&page=\(pageNo)&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
-            }
-            
-            do {
-                self.result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            }catch{
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = self.result {
-                    self.output?.didGetMoreCameraFilterSpiritPhotos(response: json)
-                }
-            }
-            
-        }
-        task.resume()
-    }
-    
-    func getSpiritPhotos() {
-        let url = "\(baseURL)spirit/photos?sol=1000&page=0&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
-            }
-            var result: PhotosResponse?
-            do {
-                result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            }catch{
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = result {
-                    self.output?.didGetSpiritPhotos(response: json)
-                }
+        self.apiManager.sendRequest(for: PhotosResponse.self, url: url) { (data) in
+            switch data {
+            case .success(let data):
+                self.output?.didGetSpiritPhotos(response: data)
+            case .failure:
+                self.output?.didGetError()
             }
         }
-        task.resume()
     }
     
-    func getMoreSpiritPhotos(pageNo: Int) {
+    func getSpiritPhotos(pageNo: Int) {
         let url = "\(baseURL)spirit/photos?sol=1000&page=\(pageNo)&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
-            }
-            var result: PhotosResponse?
-            do {
-                result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            }catch{
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = result {
-                    self.output?.didGetMoreSpiritPhotos(response: json)
-                }
+        self.apiManager.sendRequest(for: PhotosResponse.self, url: url) { (data) in
+            switch data {
+            case .success(let data):
+                self.output?.didGetSpiritPhotos(response: data)
+            case .failure(let error):
+                print("errorMessage", error)
             }
         }
-        task.resume()
     }
 }
