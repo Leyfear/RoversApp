@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controllers = [curiosityViewController,spiritViewController,opportunityViewController]
         tabBarController.setViewControllers(controllers, animated: true)
         if let items = tabBarController.tabBar.items {
-            let images = ["1", "2", "3"]
+            let images = ["Curiosity", "Spirit", "Opportunity"]
             for x in 0..<items.count {
                 items[x].image = UIImage(named: images[x])
             }

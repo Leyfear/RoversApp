@@ -14,47 +14,27 @@ class OpportunityPresenter {
 }
 
 extension OpportunityPresenter: OpportunityPresenterInput {
-    func getCameraFilterOpportunityPhotos(camera: String) {
-        self.interactor?.getCameraFilterOpportunityPhotos(camera: camera)
+
+    func getCameraFilterOpportunityPhotos(camera: String, pageNo: Int) {
+        self.interactor?.getCameraFilterOpportunityPhotos(camera: camera, pageNo: pageNo)
     }
-    
-    func getMoreCameraFilterOpportunityPhotos(camera: String, pageNo: Int) {
-        self.interactor?.getMoreCameraFilterOpportunityPhotos(camera: camera, pageNo: pageNo)
-    }
-    
-    func getOpportunityPhotos() {
-        self.interactor?.getOpportunityPhotos()
-    }
-    
-    func getMoreOpportunityPhotos(pageNo: Int) {
-        self.interactor?.getMoreOpportunityPhotos(pageNo: pageNo)
+        
+    func getOpportunityPhotos(pageNo: Int) {
+        self.interactor?.getOpportunityPhotos(pageNo: pageNo)
     }
     
     func navigateToDetail(detail: Photos) {
         self.router?.navigateToDetail(detail: detail)
     }
-    
-  
 }
 
 
 extension OpportunityPresenter: OpportunityPresenterOutput {
-    func didGetCameraFilterOpportunityPhotos(response: PhotosResponse) {
-        self.view?.didGetCameraFilterOpportunityPhotos(response: response)
-    }
-    
-    func didGetMoreCameraFilterOpportunityPhotos(response: PhotosResponse) {
-        self.view?.didGetMoreCameraFilterOpportunityPhotos(response: response)
+    func didGetError(){
+        self.view?.didGetError()
     }
     
     func didGetOpportunityPhotos(response: PhotosResponse) {
         self.view?.didGetOpportunityPhotos(response: response)
     }
-    
-    func didGetMoreOpportunityPhotos(response: PhotosResponse) {
-        self.view?.didGetMoreOpportunityPhotos(response: response)
-    }
-    
-
 }
-

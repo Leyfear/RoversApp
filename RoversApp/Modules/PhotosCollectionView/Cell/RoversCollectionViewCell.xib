@@ -17,17 +17,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lNl-gF-DGZ">
-                        <rect key="frame" x="10" y="10" width="407" height="334"/>
+                        <rect key="frame" x="2" y="2" width="423" height="350"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="lNl-gF-DGZ" secondAttribute="bottom" constant="10" id="J4Q-Mf-1Do"/>
-                <constraint firstItem="lNl-gF-DGZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="ajJ-aj-Lgd"/>
-                <constraint firstAttribute="trailing" secondItem="lNl-gF-DGZ" secondAttribute="trailing" constant="10" id="fhU-ea-qSH"/>
-                <constraint firstItem="lNl-gF-DGZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="i9T-GG-7Qd"/>
+                <constraint firstAttribute="bottom" secondItem="lNl-gF-DGZ" secondAttribute="bottom" constant="2" id="J4Q-Mf-1Do"/>
+                <constraint firstItem="lNl-gF-DGZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="ajJ-aj-Lgd"/>
+                <constraint firstAttribute="trailing" secondItem="lNl-gF-DGZ" secondAttribute="trailing" constant="2" id="fhU-ea-qSH"/>
+                <constraint firstItem="lNl-gF-DGZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="i9T-GG-7Qd"/>
             </constraints>
             <size key="customSize" width="427" height="354"/>
             <connections>

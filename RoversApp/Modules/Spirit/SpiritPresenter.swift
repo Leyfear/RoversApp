@@ -14,20 +14,16 @@ class SpiritPresenter {
 }
 
 extension SpiritPresenter: SpiritPresenterInput {
-    func getCameraFilterSpiritPhotos(camera: String) {
-        self.interactor?.getCameraFilterSpiritPhotos(camera: camera)
+
+    
+    func getCameraFilterSpiritPhotos(camera: String, pageNo: Int) {
+        self.interactor?.getCameraFilterSpiritPhotos(camera: camera, pageNo: pageNo)
     }
     
-    func getMoreCameraFilterSpiritPhotos(camera: String, pageNo: Int) {
-        self.interactor?.getMoreCameraFilterSpiritPhotos(camera: camera, pageNo: pageNo)
-    }
+
     
-    func getSpiritPhotos() {
-        self.interactor?.getSpiritPhotos()
-    }
-    
-    func getMoreSpiritPhotos(pageNo: Int) {
-        self.interactor?.getMoreSpiritPhotos(pageNo:pageNo)
+    func getSpiritPhotos(pageNo: Int) {
+        self.interactor?.getSpiritPhotos(pageNo:pageNo)
     }
     
     func navigateToDetail(detail: Photos) {
@@ -37,19 +33,11 @@ extension SpiritPresenter: SpiritPresenterInput {
 
 
 extension SpiritPresenter: SpiritPresenterOutput {
-    func didGetCameraFilterSpiritPhotos(response: PhotosResponse) {
-        self.view?.didGetCameraFilterSpiritPhotos(response: response)
-    }
-    
-    func didGetMoreCameraFilterSpiritPhotos(response: PhotosResponse) {
-        self.view?.didGetMoreCameraFilterSpiritPhotos(response: response)
+    func didGetError() {
+        self.view?.didGetError()
     }
     
     func didGetSpiritPhotos(response: PhotosResponse) {
         self.view?.didGetSpiritPhotos(response: response)
-    }
-    
-    func didGetMoreSpiritPhotos(response: PhotosResponse) {
-        self.view?.didGetMoreSpiritPhotos(response: response)
     }
 }

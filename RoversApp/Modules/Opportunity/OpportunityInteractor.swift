@@ -9,105 +9,35 @@ import Foundation
 
 class OpportunityInteractor {
     var output: OpportunityPresenterOutput?
-    var result: PhotosResponse?
+    var apiManager = APIManager()
 }
 
 extension OpportunityInteractor: OpportunityInteractorInput {
-    func getCameraFilterOpportunityPhotos(camera: String) {
-        let url = "\(baseURL)opportunity/photos?sol=1000&camera=\(camera)&page=0&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
-            }
-            do {
-                self.result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            } catch {
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = self.result {
-                    self.output?.didGetCameraFilterOpportunityPhotos(response: json)
-                }
-            }
-        }
-        task.resume()
-    }
+
     
-    func getMoreCameraFilterOpportunityPhotos(camera: String, pageNo: Int) {
+    func getCameraFilterOpportunityPhotos(camera: String, pageNo: Int) {
         let url = "\(baseURL)opportunity/photos?sol=1000&camera=\(camera)&page=\(pageNo)&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
+        self.apiManager.sendRequest(for: PhotosResponse.self, url: url) { (data) in
+            switch data {
+            case .success(let data):
+                self.output?.didGetOpportunityPhotos(response: data)
+            case .failure:
+                self.output?.didGetError()
             }
-            
-            do {
-                self.result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            }catch{
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = self.result {
-                    self.output?.didGetMoreCameraFilterOpportunityPhotos(response: json)
-                }
-            }
-            
         }
-        task.resume()
     }
     
-    func getOpportunityPhotos() {
-        let url = "\(baseURL)opportunity/photos?sol=1000&page=0&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
-            }
-            var result: PhotosResponse?
-            do {
-                result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            }catch{
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = result {
-                    self.output?.didGetOpportunityPhotos(response: json)
-                }
-            }
-
-        }
-        task.resume()
-    }
     
-    func getMoreOpportunityPhotos(pageNo: Int) {
+    
+    func getOpportunityPhotos(pageNo: Int) {
         let url = "\(baseURL)opportunity/photos?sol=1000&page=\(pageNo)&api_key=\(apiKey)"
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("error")
-                return
+        self.apiManager.sendRequest(for: PhotosResponse.self, url: url) { (data) in
+            switch data {
+            case .success(let data):
+                self.output?.didGetOpportunityPhotos(response: data)
+            case .failure(let error):
+                print("errorMessage", error)
             }
-            var result: PhotosResponse?
-            do {
-                result = try JSONDecoder().decode(PhotosResponse.self, from: data)
-                
-            }catch{
-                print("failed")
-            }
-            DispatchQueue.main.async {
-                if let json = result {
-                    self.output?.didGetMoreOpportunityPhotos(response: json)
-                }
-            }
-
         }
-        task.resume()
     }
-    
-
-    
 }
-
