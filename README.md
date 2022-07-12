@@ -11,5 +11,5 @@ Just download and run.
 ## Features
 - Uses Viper Application Architecture.
 
-- Uses Kingfisher for image cache.
+- Uses Kingfisher for image cache..
 
